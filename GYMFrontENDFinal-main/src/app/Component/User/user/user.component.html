@@ -1,0 +1,49 @@
+
+<!-- Top Navigation Bar  -->
+<nav class="top-app-bar navbar navbar-expand navbar-dark bg-dark">
+    <div class="container-fluid px-4">
+      <!-- Drawer toggle button -->
+      <button class="btn btn-lg btn-icon order-1 order-lg-0" id="drawerToggle" href="javascript:void(0);"><i class="material-icons">menu</i></button>
+       <!-- Navbar brand -->
+      <a class="navbar-brand me-auto" href="index.html"><div class="text-uppercase font-monospace"> Gym </div></a>
+       <!-- Navbar buttons -->
+      <div class="d-flex align-items-center mx-3 me-lg-0">
+        
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Sidebar  -->
+  <div class="d-flex">
+    <main>
+        <div class="d-flex flex-column flex-shrink-0 purple-sidebar">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+              <span class="fs-4">Gym Fees Management System</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+              <li><a class="nav-link text-dark" [routerLink]="['program']"><i class="bi bi-calendar fs-3"></i>Programs</a></li>
+              <li><a class="nav-link text-dark" [routerLink]="['subscription']"><i class="bi bi-credit-card-2-front fs-3"></i>Subscription</a></li>
+              <li><a class="nav-link text-dark" [routerLink]="['member-payment']"><i class="bi bi-credit-card-2-front fs-3"></i> YourPayments</a></li>
+              <li><a class="nav-link text-dark" [routerLink]="['app-enrolled-programs']"><i class="bi bi-credit-card-2-front fs-3"></i> Entrolled Programs</a></li>
+
+              <!-- <li><a class="nav-link text-dark" [routerLink]="['report']"><i class="bi bi-credit-card-2-front fs-3"></i>Reports</a></li> -->
+              <li><a class="nav-link text-dark"><i class="bi bi-box-arrow-left fs-4"></i>Log Out</a></li>
+            </ul>
+            <hr>
+        </div>
+        
+    </main>
+  
+     <!-- Main Content Area  -->
+    <div class="bg"  style="width:100%">
+      <router-outlet class="m-6"></router-outlet>
+    </div>
+  </div>
+  
+
+  
+   
+
+
+   

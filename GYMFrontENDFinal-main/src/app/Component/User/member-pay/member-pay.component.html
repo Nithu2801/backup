@@ -1,0 +1,45 @@
+<div class="payment-container">
+    <h2>Add Program Payment</h2>
+  
+    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="userId">User ID:</label>
+        <input id="userId" formControlName="userId" type="text" />
+        <div *ngIf="paymentForm.get('userId').invalid && paymentForm.get('userId').touched" class="error">
+          User ID is required.
+        </div>
+      </div>
+  
+      <div>
+        <label for="programId">Program ID:</label>
+        <input id="programId" formControlName="programId" type="text" />
+        <div *ngIf="paymentForm.get('programId').invalid && paymentForm.get('programId').touched" class="error">
+          Program ID is required.
+        </div>
+      </div>
+  
+      <div>
+        <label for="paymentAmount">Amount:</label>
+        <input id="paymentAmount" formControlName="paymentAmount" type="number" />
+        <div *ngIf="paymentForm.get('paymentAmount').invalid && paymentForm.get('paymentAmount').touched" class="error">
+          Amount must be greater than 0.
+        </div>
+      </div>
+  
+      <div>
+        <label for="paymentDate">Payment Date:</label>
+        <input id="paymentDate" formControlName="paymentDate" type="date" />
+        <div *ngIf="paymentForm.get('paymentDate').invalid && paymentForm.get('paymentDate').touched" class="error">
+          Payment Date is required.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="paymentForm.invalid">Submit Payment</button>
+    </form>
+  
+    <div *ngIf="paymentResponse" class="response">
+      <h3>Response:</h3>
+      <pre>{{ paymentResponse | json }}</pre>
+    </div>
+  </div>
+  

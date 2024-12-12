@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+      <h2>Programs for Member ID: {{ memberId }}</h2>
+
+      <!-- Enrollable Programs Table -->
+      <div *ngIf="enrollablePrograms.length > 0">
+        <h3>Programs Available for Enrollment</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Program Name</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let program of enrollablePrograms">
+              <td>{{ program.name }}</td>
+              <!-- Ensure program.description exists -->
+              <td>{{ program.description || 'No description available' }}</td>
+              <td>
+                <!-- Enroll button: Calls enrollInProgram() method -->
+                <button class="btn btn-success" (click)="enrollInProgram(program.id)">Enroll</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div *ngIf="enrollablePrograms.length === 0">
+        <p>No programs available for enrollment.</p>
+      </div>
+
+      <!-- Enrolled Programs Table -->
+      <div *ngIf="enrolledPrograms.length > 0">
+        <h3>Programs You're Enrolled In</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Program Name</th>
+              <th>Enrollment Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let program of enrolledPrograms">
+              <td>{{ program.name }}</td>
+              <!-- Ensure program.enrollmentDate exists -->
+              <td>{{ program.enrollmentDate | date: 'shortDate' }}</td>
+              <!-- Ensure program.status exists -->
+              <td>{{ program.status || 'No status available' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div *ngIf="enrolledPrograms.length === 0">
+        <p>You are not enrolled in any programs yet.</p>
+      </div>
+    </div>
+</div>

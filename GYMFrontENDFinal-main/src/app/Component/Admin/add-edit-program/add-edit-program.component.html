@@ -1,0 +1,34 @@
+<div class="form-container col d-flex justify-content-center">
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+            <h3 class="text-dark">{{isEditMode == true ? 'Update Program' : 'Add New program' }}</h3>
+        </div>
+        <div class="card-body" style="width: 400px;">
+            <form [formGroup]="programForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="id" class="form-label">ProgramID</label>
+                    <input type="text" class="form-control" id="id" formControlName="id">
+                </div>
+                <div class="mb-3">
+                    <label for="programName" class="form-label">ProgramName</label>
+                    <input type="text" class="form-control" id="programName" formControlName="name">
+                </div>
+                <div class="mb-3">
+                    <label for="profileimage" class="form-label">profileimage</label>
+                    <input type="file" class="form-control" id="profileimage" formControlName="profileimage">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="address" name="address" class="form-control" formControlName="description" rows="3"
+                        ngModel></textarea>
+                </div>
+                <div class="mb-3 mx-auto">
+                    <button type="submit" [disabled]="programForm.invalid" class="btn btn-success me-2">{{isEditMode ==
+                        true ? 'Update' : 'Save'}}</button>
+                    <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
+                    <button type="button" class="btn-close" aria-label="Close"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container mt-6">
+  <div class="row">
+      <div class="col-md-4 col-sm-12">
+          <img src=".\images\person-svgrepo-com.svg" style="width: 300px; " alt="profile" srcset="">
+
+        </div>
+      <div class="col-md-8 col-sm-12 ga-maamli-regular">
+          <h1 class="anton-regular">User Id :{{member.userId}}</h1>
+          <p>Name : {{member.firstName}} {{member.lastName}}</p>
+          <p>Age :{{member.age}}</p>
+          <p>Gender :{{member.gender}}</p>
+          <p>Contact No :{{member.contactNo}}</p>
+          <p>Email :{{member.email}}</p>
+          <p>NIC number :{{member.nicNo}}</p>
+          <p>Height :{{member.height}}</p>
+          <p>weight :{{member.weight}}</p>
+          <p>Address :{{member.address}}</p>
+          
+         
+
+       </div>
+  </div>
+</div>  
+
+
+<div class="text-center m-5">
+  <h1 class="text-danger mt-2">Our Services You Might Like</h1>
+  <hr style="border: none; height: 3px; background-color: red; width: 80%; margin: 0 auto;">
+<app-view-all-program></app-view-all-program></div>
+<div class="text-center m-5">
+  <h1 class="text-danger mt-2">Your Enrollments</h1>
+  <hr style="border: none; height: 3px; background-color: red; width: 80%; margin: 0 auto;">
+  <app-enrolled-programs></app-enrolled-programs>
+</div>

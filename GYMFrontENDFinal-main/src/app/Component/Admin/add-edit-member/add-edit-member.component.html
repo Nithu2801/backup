@@ -1,0 +1,167 @@
+<div class="container mt-4">
+  <h3 class="text-dark text-center">{{ isEditMode ? 'Update User' : 'Add New Member' }}</h3>
+  <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <!-- User ID -->
+      <div class="col-md-6 mb-3">
+        <label for="userId" class="form-label">User Id:</label>
+        <input type="text" id="userId" class="form-control" formControlName="userId" required />
+      </div>
+
+      <!-- First Name -->
+      <div class="col-md-6 mb-3">
+        <label for="firstName" class="form-label">First Name:</label>
+        <input type="text" id="firstName" class="form-control" formControlName="firstName" required />
+        <div *ngIf="memberForm.get('firstName')?.invalid && memberForm.get('firstName')?.touched">
+          <small class="text-danger">First Name is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Last Name -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="lastName" class="form-label">Last Name:</label>
+        <input type="text" id="lastName" class="form-control" formControlName="lastName" required />
+        <div *ngIf="memberForm.get('lastName')?.invalid && memberForm.get('lastName')?.touched">
+          <small class="text-danger">Last Name is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Age -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="age" class="form-label">Age:</label>
+        <input type="number" id="age" class="form-control" formControlName="age" required />
+        <div *ngIf="memberForm.get('age')?.invalid && memberForm.get('age')?.touched">
+          <small class="text-danger">Age is required and must be between 1 and 120.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Height -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="height" class="form-label">Height:</label>
+        <input type="text" id="height" class="form-control" formControlName="height" required />
+        <div *ngIf="memberForm.get('height')?.invalid && memberForm.get('height')?.touched">
+          <small class="text-danger">Height is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weight -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="weight" class="form-label">Weight:</label>
+        <input type="text" id="weight" class="form-control" formControlName="weight" required />
+        <div *ngIf="memberForm.get('weight')?.invalid && memberForm.get('weight')?.touched">
+          <small class="text-danger">Weight is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="gender" class="form-label">Gender:</label>
+        <select id="gender" class="form-select" formControlName="gender" required>
+          <option value="" disabled [selected]="!memberForm.get('gender')?.value">Select Gender</option>
+          <option value="0">Male</option>
+          <option value="1">Female</option>
+          <option value="2">Other</option>
+        </select>
+        <div *ngIf="memberForm.get('gender')?.invalid && memberForm.get('gender')?.touched">
+          <small class="text-danger">Gender is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Date of Birth -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="dob" class="form-label">Date of Birth:</label>
+        <input type="date" id="dob" class="form-control" formControlName="dob" required />
+        <div *ngIf="memberForm.get('dob')?.invalid && memberForm.get('dob')?.touched">
+          <small class="text-danger">Date of Birth is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- NIC No -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="nicNo" class="form-label">NIC No:</label>
+        <input type="text" id="nicNo" class="form-control" formControlName="nicNo" required />
+        <div *ngIf="memberForm.get('nicNo')?.invalid && memberForm.get('nicNo')?.touched">
+          <small class="text-danger">NIC No is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" class="form-control" formControlName="email" required />
+        <div *ngIf="memberForm.get('email')?.invalid && memberForm.get('email')?.touched">
+          <small class="text-danger" *ngIf="memberForm.get('email')?.errors?.email">Invalid Email.</small>
+          <small class="text-danger" *ngIf="memberForm.get('email')?.errors?.required">Email is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact No -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="contactNo" class="form-label">Contact No:</label>
+        <input type="text" id="contactNo" class="form-control" formControlName="contactNo" required />
+        <div *ngIf="memberForm.get('contactNo')?.invalid && memberForm.get('contactNo')?.touched">
+          <small class="text-danger">Contact No is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <label for="address" class="form-label">Address:</label>
+        <textarea id="address" class="form-control" formControlName="address" rows="3" required></textarea>
+        <div *ngIf="memberForm.get('address')?.invalid && memberForm.get('address')?.touched">
+          <small class="text-danger">Address is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" class="form-control" formControlName="password" required />
+        <div *ngIf="memberForm.get('password')?.invalid && memberForm.get('password')?.touched">
+          <small class="text-danger">Password is required (min 6 characters).</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Image -->
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="profileImage" class="form-label">Profile Image:</label>
+        <input type="file" id="profileImage" class="form-control" (change)="onImageChange($event)" />
+        <div *ngIf="memberForm.get('profileImage')?.invalid && memberForm.get('profileImage')?.touched">
+          <small class="text-danger">Please upload a profile image.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit & Cancel -->
+    <div class="d-flex justify-content-center">
+      <button type="submit" [disabled]="memberForm.invalid" class="btn btn-success me-2">
+        {{ isEditMode ? 'Update' : 'Save' }}
+      </button>
+      <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
+    </div>
+  </form>
+</div>

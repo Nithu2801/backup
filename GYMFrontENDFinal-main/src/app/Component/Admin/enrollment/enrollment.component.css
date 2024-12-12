@@ -1,0 +1,9 @@
+/* Optional: Add some basic styling */
+table th, table td {
+    text-align: center;
+  }
+  
+  button {
+    margin: 5px;
+  }
+  

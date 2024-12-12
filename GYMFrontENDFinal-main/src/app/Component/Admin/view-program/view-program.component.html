@@ -1,0 +1,35 @@
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card id-card text-center p-4">
+      <div class="card-body">
+        <div class="profile-pic mb-3">
+        </div>    
+        <div  class="details text-start">
+        
+          <tr *ngIf="meprogram">
+  
+            <div class="member-details-card">
+              <h2>Program Details</h2>
+              <div class="detail-item">
+                <strong>Id:</strong> {{ meprogram.id }}
+              </div>
+              <div class="detail-item">
+                <strong>Name:</strong> {{ meprogram.name }}
+              </div>
+              <div class="detail-item">
+                <strong>Description:</strong> {{ meprogram.description }}
+              </div>
+              <!-- <div class="detail-item">
+                <strong>Age:</strong> {{ program.images }}
+              </div> -->
+              <button class="btn" (click)="onClose()">Okay</button>
+            </div>
+            
+          
+          </tr>
+  
+        </div>
+       
+      </div>
+    </div>
+  </div>
